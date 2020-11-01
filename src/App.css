@@ -1,3 +1,115 @@
 .App {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(240, 232, 185);
+}
+
+.my-name{
+  position: absolute;
+  width: 100%;
   text-align: center;
+  font-family: Apercu-Mono, monospace;
+  font-size: 1em;
+  bottom: 10px;
+}
+
+.gameboard {
+  margin: auto;
+  display: flex;
+  width: 50vw;
+  height: 80vh;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  font-family: Apercu-Mono, monospace;
+  font-size: 2em;
+  margin-top: 20%;
+  margin-bottom: 8%;
+}
+
+.progress-text {
+  width: 100%;
+  text-align: center;
+  font-family: Apercu-Mono, monospace;
+  font-size: 1em;
+  margin-bottom: 3%;
+}
+
+.questions {
+  width: 100%;
+  text-align: center;
+  font-family: Apercu-Mono, monospace;
+  font-size: 1.5em;
+  margin-bottom: 8%;
+}
+
+.answers {
+  width: 75%;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.answer-button {
+  display: inline-block;
+  color: #666;
+  background-color: #eee;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom-width: 3px;
+  margin-bottom: 1%;
+}
+
+.answer-button:hover {
+  background-color: #e3e3e3;
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+.answer-button:active {
+  background-color: #ccc;
+  border-color: rgba(0, 0, 0, 0.9);
+}
+
+.correctness {
+  font-family: Apercu-Mono, monospace;
+  text-align: center;
+}
+
+.gameover {
+  font-family: Apercu-Mono, monospace;
+}
+
+.restart-button {
+  width: 100px;
+  display: block;
+  margin: auto;
+  padding: 1rem 1.25rem;
+  font-family: sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+  color: rgb(253, 215, 0);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  z-index: 1;
+  border: none;
+}
+
+.restart-button:hover{
+  color: #ffffff;
+  background-color: rgb(240, 232, 185);
 }

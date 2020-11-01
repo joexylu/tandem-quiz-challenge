@@ -7,15 +7,18 @@ import Answers from "./Answers";
 import GameOver from "./GameOver";
 
 function Game() {
-  let tandemQuestions = QuestionsAndAnswersArray.slice(0,10);
+    shuffleArrayHelper(QuestionsAndAnswersArray)
+  let tandemQuestions = QuestionsAndAnswersArray.slice(0, 10);
   const [progress, setProgress] = useState(0);
   const [Score, setScore] = useState(0);
-  const [gameOver, setGameOver] = useState(false)
-  const [currentQuestion, setCurrentQuestion] = useState(tandemQuestions[progress].question)
-  const [rightAns, setRightAns] = useState(tandemQuestions[progress].correct)
-  const [wrongAns, setWrongAns] = useState(tandemQuestions[progress].incorrect)
+  const [gameOver, setGameOver] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(
+    tandemQuestions[progress].question
+  );
+  const [rightAns, setRightAns] = useState(tandemQuestions[progress].correct);
+  const [wrongAns, setWrongAns] = useState(tandemQuestions[progress].incorrect);
 
-//   console.log(tandemQuestions)
+  //   console.log(tandemQuestions)
 
   const renderGame = () => {
     if (!gameOver) {
@@ -37,29 +40,32 @@ function Game() {
             setGameOver={setGameOver}
           />
         </div>
-      )
+      );
     } else {
       return <GameOver Score={Score} total={tandemQuestions.length} />;
     }
-  }
+  };
 
-  const handleRestart = (e) => {
-    e.preventDefault()
+  const handleRestart = e => {
+    e.preventDefault();
     setProgress(0);
     setScore(0);
     shuffleArrayHelper(tandemQuestions);
-    setCurrentQuestion(tandemQuestions[progress].question)
-    setRightAns(tandemQuestions[progress].correct)
-    setWrongAns(tandemQuestions[progress].incorrect)
-    setGameOver(false)
+    setCurrentQuestion(tandemQuestions[progress].question);
+    setRightAns(tandemQuestions[progress].correct);
+    setWrongAns(tandemQuestions[progress].incorrect);
+    setGameOver(false);
   };
   return (
-    <div>
-      <div>
+    <div className="gameboard">
+      <div className="title">
+        Tandem Apprentice Code Challenge
+      </div>
+      <div className="progress-text">
         Question {progress + 1} of {tandemQuestions.length}
       </div>
       {renderGame()}
-      <button onClick={handleRestart}>Restart</button>
+      <button className="restart-button" onClick={handleRestart}>Restart</button>
     </div>
   );
 }

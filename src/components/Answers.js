@@ -41,12 +41,12 @@ function Answers({
   };
 
   return (
-    <div>
-      <button onClick={handleClick}>{answerArr[0]}</button>
-      <button onClick={handleClick}>{answerArr[1]}</button>
-      <button onClick={handleClick}>{answerArr[2]}</button>
-      <button onClick={handleClick}>{answerArr[3]}</button>
-      <div>
+    <div className="answers">
+      <button className="answer-button" onClick={handleClick}>{answerArr[0]}</button>
+      <button className="answer-button" onClick={handleClick}>{answerArr[1]}</button>
+      <button className="answer-button" onClick={handleClick}>{answerArr[2]}</button>
+      <button className="answer-button" onClick={handleClick}>{answerArr[3]}</button>
+      <div className={`correctness`}>
           {correctness}
       </div>
     </div>
