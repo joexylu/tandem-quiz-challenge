@@ -7,7 +7,7 @@ import Answers from "./Answers";
 import GameOver from "./GameOver";
 
 function Game() {
-  let tandemQuestions = QuestionsAndAnswersArray;
+  let tandemQuestions = QuestionsAndAnswersArray.slice(0,10);
   const [progress, setProgress] = useState(0);
   const [Score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false)

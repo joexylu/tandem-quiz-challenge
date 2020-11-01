@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import shuffleArrayHelper from "../shuffleArrayHelper";
 
 function Answers({
@@ -13,23 +13,31 @@ function Answers({
   setCurrentQuestion,
   setRightAns,
   setWrongAns,
-  setGameOver,
+  setGameOver
 }) {
   const answerArr = shuffleArrayHelper(wrongAns.concat(rightAns));
+  const [correctness, setCorrectness] = useState(null);
 
   const handleClick = e => {
     e.preventDefault();
     if (e.target.innerHTML == rightAns) {
       setScore(Score + 1);
+      setCorrectness("Correct!");
+    } else {
+      setCorrectness("Incorrect!");
     }
-    if (progress+1 < totalRound) {
-      setProgress(progress + 1);
-      setCurrentQuestion(tandemQuestions[progress].question);
-      setRightAns(tandemQuestions[progress].correct);
-      setWrongAns(tandemQuestions[progress].incorrect);
-    }else{
-        setGameOver(true)
-    }
+
+    setTimeout(() => {
+      if (progress + 1 < totalRound) {
+        setProgress(progress + 1);
+        setCurrentQuestion(tandemQuestions[progress].question);
+        setRightAns(tandemQuestions[progress].correct);
+        setWrongAns(tandemQuestions[progress].incorrect);
+      } else {
+        setGameOver(true);
+      }
+      setCorrectness(null)
+    }, 1000);
   };
 
   return (
@@ -38,6 +46,9 @@ function Answers({
       <button onClick={handleClick}>{answerArr[1]}</button>
       <button onClick={handleClick}>{answerArr[2]}</button>
       <button onClick={handleClick}>{answerArr[3]}</button>
+      <div>
+          {correctness}
+      </div>
     </div>
   );
 }
