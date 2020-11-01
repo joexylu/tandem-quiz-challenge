@@ -1,9 +1,9 @@
 import React from 'react'
 
-function GameOver() {
+function GameOver({Score, total}) {
     return (
         <div>
-            
+            You got {Score} / {total} correct!
         </div>
     )
 }
