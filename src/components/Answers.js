@@ -36,19 +36,27 @@ function Answers({
       } else {
         setGameOver(true);
       }
-      setCorrectness(null)
+      setCorrectness(null);
     }, 1000);
   };
 
   return (
     <div className="answers">
-      <button className="answer-button" onClick={handleClick}>{answerArr[0]}</button>
-      <button className="answer-button" onClick={handleClick}>{answerArr[1]}</button>
-      <button className="answer-button" onClick={handleClick}>{answerArr[2]}</button>
-      <button className="answer-button" onClick={handleClick}>{answerArr[3]}</button>
-      <div className={`correctness`}>
-          {correctness}
-      </div>
+      <button className="answer-button" onClick={handleClick}>
+        {answerArr[0]}
+      </button>
+      <button className="answer-button" onClick={handleClick}>
+        {answerArr[1]}
+      </button>
+      <button className="answer-button" onClick={handleClick}>
+        {answerArr[2]}
+      </button>
+      {!!answerArr[3] ? (
+        <button className="answer-button" onClick={handleClick}>
+          {answerArr[3]}
+        </button>
+      ) : null}
+      <div className={`correctness`}>{correctness}</div>
     </div>
   );
 }
