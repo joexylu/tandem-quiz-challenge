@@ -17,6 +17,7 @@ function Answers({
 }) {
   const answerArr = shuffleArrayHelper(wrongAns.concat(rightAns));
   const [correctness, setCorrectness] = useState(null);
+  const [RightOne, setRightOne] = useState("")
 
   const handleClick = e => {
     e.preventDefault();
@@ -25,6 +26,7 @@ function Answers({
       setCorrectness("Correct!");
     } else {
       setCorrectness("Incorrect!");
+      setRightOne(" The Correct Answer is "+rightAns+" !");
     }
 
     setTimeout(() => {
@@ -36,7 +38,8 @@ function Answers({
       } else {
         setGameOver(true);
       }
-      setCorrectness(null);
+      setCorrectness(null)
+      setRightOne("")
     }, 1000);
   };
 
@@ -57,6 +60,11 @@ function Answers({
         </button>
       ) : null}
       <div className={`correctness`}>{correctness}</div>
+      { correctness !== "Correct!" ? (
+        <div className={`correctness`}>{RightOne}</div>
+      ):(
+        null
+      )}
     </div>
   );
 }
